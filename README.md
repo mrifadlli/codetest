@@ -18,8 +18,11 @@ input username as you want
 paste token into input Token GoRest
 
 you can search root user on search box '/dashboard/users'
-id | name | gender | status |
-7565315 | ROOT | female | active |
+
+| ID       | Name | Gender | Status |
+|----------|------|--------|--------|
+| 7565315  | ROOT | Female | Active |
+
 
 that user cannot be delete, because in this public api, when user has been delete, that user can't create post.
 
