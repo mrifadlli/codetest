@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deletePost } from "@/pages/api";
 import { message } from "antd";
 import router from "next/router";
-import UriPath from "@/pages/utils/uri_path.enum";
+import UriPath from "@//utils/uri_path.enum";
 
 export const useDeletePost = () => {
     const queryClient = useQueryClient();

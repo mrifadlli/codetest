@@ -4,4 +4,4 @@ enum UriPath {
     DASHBOARD_POSTS = '/dashboard/posts',
   }
   
-  export default UriPath;
+export default UriPath;

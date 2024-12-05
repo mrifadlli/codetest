@@ -7,7 +7,7 @@ import { viewUser } from '@/pages/api';
 import { Button, message, Spin } from 'antd';
 import router from 'next/router';
 import useUserStore from '@/store/users';
-import UriPath from '@/pages/utils/uri_path.enum';
+import UriPath from '@/utils/uri_path.enum';
 
 export default function ViewUser() {
     const params = useParams();

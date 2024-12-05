@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { message } from "antd";
-import UriPath from "@/pages/utils/uri_path.enum";
-import axios from "axios";
+import UriPath from "@/utils/uri_path.enum";
+// import axios from "axios";
 
 const useAuth = () => {
   const router = useRouter();

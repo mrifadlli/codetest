@@ -4,8 +4,8 @@ import { Breadcrumb, Layout, Menu, theme, Space, Avatar, Button, Spin } from "an
 import { useRouter } from "next/router";
 import useAuth from "@/hooks/useAuth";
 import useUserStore from "@/store/users";
-import UriPath from "@/pages/utils/uri_path.enum";
-import Pages from '@/pages'
+import UriPath from "@/utils/uri_path.enum";
+// import Pages from '@/pages'
 
 const { Content, Footer, Sider } = Layout;
 

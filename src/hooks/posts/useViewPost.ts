@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { viewPost } from "@/pages/api";
 import { message } from "antd";
 import { useRouter } from "next/router";
-import UriPath from "@/pages/utils/uri_path.enum";
+import UriPath from "@/utils/uri_path.enum";
 
 export const useViewPost = () => {
     const router = useRouter();

@@ -4,7 +4,7 @@ import TablePost from '@/components/TablePost'
 import { message, Spin } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons';
 import router from 'next/router';
-import UriPath from '@/pages/utils/uri_path.enum';
+import UriPath from '@/utils/uri_path.enum';
 import { getPosts } from '@/pages/api';
 import useStorePost from '@/store/posts';
 import CreatePostModal from '@/components/CreatePostModal';

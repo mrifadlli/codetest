@@ -8,7 +8,7 @@ import { getUsers } from '@/pages/api';
 import { useQuery } from '@tanstack/react-query';
 import router from 'next/router';
 import useUserStore from '@/store/users';
-import UriPath from '@/pages/utils/uri_path.enum';
+import UriPath from '@/utils/uri_path.enum';
 import { useCreateUser } from '@/hooks/users/useCreateUser'
 import { useDeleteUser } from '@/hooks/users/useDeleteUser';
 import { useViewUser } from '@/hooks/users/useViewUser';

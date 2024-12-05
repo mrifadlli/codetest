@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { getUsers } from "./api";
 import InfoCard from "@/components/InfoCard";
 import CredentialsModal from "@/components/CredentialsModal";
-import UriPath from './utils/uri_path.enum'
+import UriPath from '@/utils/uri_path.enum'
 import useUserStore from '@/store/users'
 
 export default function Home() {

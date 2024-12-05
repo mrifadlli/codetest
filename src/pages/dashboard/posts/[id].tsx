@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import { viewPost } from '@/pages/api';
 import { Button, message, Spin } from 'antd';
 import router from 'next/router';
-import UriPath from '@/pages/utils/uri_path.enum';
+import UriPath from '@/utils/uri_path.enum';
 import usePostStore from '@/store/posts';
 
 export default function ViewUser() {

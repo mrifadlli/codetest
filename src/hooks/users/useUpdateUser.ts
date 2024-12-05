@@ -3,7 +3,7 @@ import { updateUser } from "@/pages/api";
 import { UpdateUser } from "@/types";
 import { message } from "antd";
 import router from "next/router";
-import UriPath from "@/pages/utils/uri_path.enum";
+import UriPath from "@/utils/uri_path.enum";
 
 export const useUpdateUser = () => {
     const queryClient = useQueryClient();
