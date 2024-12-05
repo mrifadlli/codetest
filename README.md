@@ -60,6 +60,6 @@ Confirm the action through a modal dialog before proceeding.
 Show feedback (success/error) after the operation.
 
 This app will be deploy on vercel:
-https://codetest-ueed.vercel.app/dashboard/users
+https://codetest-ueed.vercel.app/
 
 thank you
