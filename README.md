@@ -2,39 +2,61 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, create .env file:
+NEXT_PUBLIC_TOKEN_ACCESS="18df519d4580c1d4e25f3f20ed6b91dd8a5bb8dc61845950ad56748782930d69"
+NEXT_PUBLIC_BASE_URL="https://gorest.co.in"
+NEXT_PUBLIC_ROOT_ID=7565315
 
-```bash
+Then, run this:
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+click copy button Use this token
+click enter button
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+input username as you want
+paste token into input Token GoRest
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+you can search root user on search box '/dashboard/users'
+id | name | gender | status |
+7565315 | ROOT | female | active |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+that user cannot be delete, because in this public api, when user has been delete, that user can't create post.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+this app provide :
 
-## Learn More
+- Credential Access to Blog Post
+Display a welcome dialog upon first access to the app.
+The dialog should include input name and input Go Rest Token.
+Show appropriate error or success messages based on input validity.
 
-To learn more about Next.js, take a look at the following resources:
+- Post List
+Fetch and display a list of blog posts from the GoRest API.
+Ensure posts are optimized with pagination for performance.
+Provide a search and filter feature to refine the post list.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Detail Post
+The detail post feature should be implemented as a dedicated page rather than a modal or dialog
+Allow users to view detailed information about a specific post.
+Include fields like post title, body, and author information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Create Post
+Implement a form to allow users to create a new post.
+Validate input fields (e.g., title and body are required).
+Show success or error messages based on API response.
 
-## Deploy on Vercel
+- Update Post
+Enable users to edit an existing post.
+Display current values pre-filled in the form for easy modification.
+Handle success and error states for the update operation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Delete Post
+Allow users to delete a post.
+Confirm the action through a modal dialog before proceeding.
+Show feedback (success/error) after the operation.
+
+This app will be deploy on vercel:
+
+
+thank you
