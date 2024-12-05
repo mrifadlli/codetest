@@ -14,7 +14,7 @@ export const useDeleteUser = () => {
         if (!token) {
           router.push(UriPath.PAGE);
           throw new Error("Invalid credentials!");
-        } if (user_id == 7565315){
+        } if (user_id == Number(process.env.NEXT_PUBLIC_ROOT_ID)){
           throw new Error("Cannot delete admin user!");
         }
         
