@@ -2,20 +2,36 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, create .env file:
+# Next.js Blog Post Application
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Getting Started
+
+To set up and run this application locally, follow these steps:
+
+### Step 1: Create a `.env` File
+Add the following environment variables to your `.env` file in the root directory:
+
+```env
 NEXT_PUBLIC_TOKEN_ACCESS="18df519d4580c1d4e25f3f20ed6b91dd8a5bb8dc61845950ad56748782930d69"
 NEXT_PUBLIC_BASE_URL="https://gorest.co.in"
 NEXT_PUBLIC_ROOT_ID=7565315
+```
 
+### Step 2: Run the app
 Then, run this:
-npm i
-npm run dev
 
-click copy button Use this token
-click enter button
+- npm i
+- npm run dev
 
-input username as you want
-paste token into input Token GoRest
+### Step 3: Enter the app
+Do this step to enter the app
+
+- click copy button Use this token
+- click enter button
+- input username as you want
+- paste token into input Token GoRest
 
 you can search root user on search box '/dashboard/users'
 
@@ -62,4 +78,4 @@ Show feedback (success/error) after the operation.
 This app will be deploy on vercel:
 https://codetest-ueed.vercel.app/
 
-thank you
+## thank you
