@@ -83,7 +83,7 @@ const TableUser: React.FC<TabelPostProps> = ({ data, onDeletePost, onViewPost, h
                     Create Post
                 </Button>
                 <Input.Search
-                    placeholder="Search by name, gender, or status"
+                    placeholder="Search by id, user_id, or title"
                     allowClear
                     onSearch={handleSearch}
                     onChange={(e) => handleSearch(e.target.value)}
