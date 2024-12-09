@@ -14,8 +14,11 @@ interface PostStore {
   post: Posts | null;
   setPost: (post: Posts) => void;
 
-  modal_edit_post: boolean;
-  setModalEditPost: (modal_edit_post: boolean) => void;
+  modal_create_post: boolean;
+  setModalCreatePost: (modal_create_post: boolean) => void;
+
+  modal_delete_post: boolean;
+  setModalDeletePost: (modal_delete_post: boolean) => void;
 
   drawer_edit_post: boolean;
   setDrawerEditPost: (drawer_edit_post: boolean) => void;
@@ -40,8 +43,11 @@ const usePostStore = create<PostStore>((set) => ({
   post: null,
   setPost: (post: Posts) => set({ post }),
 
-  modal_edit_post: false,
-  setModalEditPost: (modal_edit_post: boolean) => set({ modal_edit_post }),
+  modal_create_post: false,
+  setModalCreatePost: (modal_create_post: boolean) => set({ modal_create_post }),
+
+  modal_delete_post:false,
+  setModalDeletePost: (modal_delete_post: boolean) => set({ modal_delete_post }),
 
   drawer_edit_post: false,
   setDrawerEditPost: (drawer_edit_post: boolean) => set({ drawer_edit_post }),

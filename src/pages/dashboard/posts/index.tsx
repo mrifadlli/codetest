@@ -15,11 +15,12 @@ import { useViewPost } from '@/hooks/posts/useViewPost';
 import EditPostDrawer from '@/components/EditPostDrawer';
 import { Posts, UpdatePost } from '@/types';
 import { useUpdatePost } from '@/hooks/posts/userUpdatePost';
+import DeleteModal from '@/components/DeleteModal';
 
 
 export default function index() {
 
-  const { all_posts, setAllPosts, modal_edit_post, setModalEditPost, title, setTitle, body, setBody, setDrawerEditPost, drawer_edit_post, setId, setUserId, setPost } = useStorePost();
+  const { all_posts, setAllPosts, modal_create_post, setModalCreatePost, title, setTitle, body, setBody, setDrawerEditPost, drawer_edit_post, id, setId, setUserId, setPost, modal_delete_post, setModalDeletePost } = useStorePost();
   const { mutate: createPost } = useCreatePost();
   const { mutate: deletePost, isPending: isDeletingPost } = useDeletePost();
   const { mutate: viewPost } = useViewPost()
@@ -47,8 +48,16 @@ export default function index() {
     )
   }
 
-  const handleDeletePost = async (post_id: number) => {
-    deletePost(post_id)
+  const handleDeletePost = async () => deletePost(id, {
+    onSuccess: () => {
+      setModalDeletePost(!modal_delete_post)
+      setId(0)
+    }
+  })
+
+  const handleToggleDeleteModal = (post_id: number) => {
+    setModalDeletePost(!modal_delete_post)
+    setId(post_id)
   }
 
   const handleViewPost = async (post_id: number) => {
@@ -60,9 +69,7 @@ export default function index() {
     })
   }
 
-  const handleToggleCreateModal = () => {
-    setModalEditPost(!modal_edit_post)
-  }
+  const handleToggleCreateModal = () => setModalCreatePost(!modal_create_post)
 
   const handleToggleEditDrawer = (post_id: number) => {
     setId(post_id)
@@ -104,7 +111,9 @@ export default function index() {
   return (
     <DashboardLayout title='Posts'>
       <div className="space-y-5 relative min-h-screen">
-        <CreatePostModal open={modal_edit_post} onClose={handleToggleCreateModal} title={title} setTitle={setTitle} body={body} setBody={setBody} onSubmit={handleCreatePost} />
+        <CreatePostModal open={modal_create_post} onClose={handleToggleCreateModal} title={title} setTitle={setTitle} body={body} setBody={setBody} onSubmit={handleCreatePost} />
+
+        <DeleteModal open={modal_delete_post} onCancel={() => setModalDeletePost(false)} onSubmit={handleDeletePost} data='post' />
 
         <EditPostDrawer open={drawer_edit_post} onClose={() => setDrawerEditPost(!drawer_edit_post)} onSumbit={handleUpdateUser} />
 
@@ -114,7 +123,7 @@ export default function index() {
               <Spin indicator={<LoadingOutlined style={{ fontSize: 48, color: "#4A90E2" }} spin />} />
             </div>
           ) : (
-            <TablePost data={all_posts} onDeletePost={handleDeletePost} onViewPost={handleViewPost} handleToggleCreateModal={handleToggleCreateModal} handleToggleEditDrawer={handleToggleEditDrawer} />
+            <TablePost data={all_posts} onDeletePost={handleToggleDeleteModal} onViewPost={handleViewPost} handleToggleCreateModal={handleToggleCreateModal} handleToggleEditDrawer={handleToggleEditDrawer} />
           )
         }
       </div>

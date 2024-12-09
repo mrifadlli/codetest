@@ -15,9 +15,10 @@ import { useViewUser } from '@/hooks/users/useViewUser';
 import { useUpdateUser } from '@/hooks/users/useUpdateUser';
 import EditUserDrawer from '@/components/EditUserDrawer';
 import { UpdateUser } from '@/types';
+import DeleteModal from '@/components/DeleteModal';
 
 export default function index() {
-  const { all_users, setAllUsers, setModalCreateUser, modal_create_user, name, setName, email_address, setEmailAddress, gender, setGender, setStatus, status, setDrawerEditUser, drawer_edit_user, setId } = useUserStore();
+  const { all_users, setAllUsers, setModalCreateUser, modal_create_user, name, setName, email_address, setEmailAddress, gender, setGender, setStatus, status, setDrawerEditUser, drawer_edit_user, setId, id, modal_delete_user, setModalDeleteUser } = useUserStore();
   const { mutate: createUser } = useCreateUser();
   const { mutate: deleteUser, isPending: isDeletingUser } = useDeleteUser();
   const { mutate: viewUser } = useViewUser();
@@ -46,7 +47,17 @@ export default function index() {
     )
   }
 
-  const handleDeleteUser = async (user_id: number) => deleteUser(user_id)
+  const handleDeleteUser = async () => deleteUser(id, {
+    onSuccess: () => {
+      setModalDeleteUser(false)
+      setId(0);
+    }
+  })
+
+  const handleToggleDeleteModal = (user_id: number) => {
+    setModalDeleteUser(!modal_delete_user)
+    setId(user_id)
+  }
 
   const handleViewUser = async (user_id: number) => {
     viewUser(user_id, {
@@ -57,9 +68,7 @@ export default function index() {
     })
   }
 
-  const handleToggleCreateModal = () => {
-    setModalCreateUser(!modal_create_user)
-  }
+  const handleToggleCreateModal = () => setModalCreateUser(!modal_create_user)
 
   const handleToggleDrawerEdit = (user_id: number) => {
     setId(user_id)
@@ -105,7 +114,9 @@ export default function index() {
   return (
     <DashboardLayout title='Users'>
       <div className="space-y-5 min-h-screen">
-        <CreateUserModal open={modal_create_user} onClose={handleToggleCreateModal} onSubmit={handleCreateUser} name={name} setName={setName} email_address={email_address} setEmailAddress={setEmailAddress} gender={gender} setGender={setGender} handleSwitchStatusUser={handleSwitchStatusUser} />
+        <CreateUserModal open={modal_create_user} onCancel={handleToggleCreateModal} onSubmit={handleCreateUser} name={name} setName={setName} email_address={email_address} setEmailAddress={setEmailAddress} gender={gender} setGender={setGender} handleSwitchStatusUser={handleSwitchStatusUser} />
+
+        <DeleteModal open={modal_delete_user} onCancel={() => setModalDeleteUser(false)} onSubmit={handleDeleteUser} data='user' />
 
         <EditUserDrawer open={drawer_edit_user} onClose={() => setDrawerEditUser(!drawer_edit_user)} onSumbit={handleUpdateUser} />
 
@@ -115,7 +126,7 @@ export default function index() {
               <Spin indicator={<LoadingOutlined style={{ fontSize: 48, color: "#4A90E2" }} spin />} />
             </div>
           ) : (
-            <TableUser data={all_users} onDeleteUser={handleDeleteUser} onViewUser={handleViewUser} onEditUser={handleToggleDrawerEdit} handleToggleCreateModal={handleToggleCreateModal} />
+            <TableUser data={all_users} onDeleteUser={handleToggleDeleteModal} onViewUser={handleViewUser} onEditUser={handleToggleDrawerEdit} handleToggleCreateModal={handleToggleCreateModal} />
           )
         }
       </div>

@@ -6,6 +6,7 @@ interface UserStore {
   user: Users | null,
   username: string
   modal_create_user: boolean;
+  modal_delete_user: boolean;
   drawer_edit_user: boolean;
   id: number;
   name: string;
@@ -16,6 +17,7 @@ interface UserStore {
   setUser: (user: Users) => void;
   setUsername: (username: string) => void;
   setModalCreateUser: (modal_create_user: boolean) => void;
+  setModalDeleteUser: (modal_delete_user: boolean) => void;
   setDrawerEditUser: (drawer_edit_user: boolean) => void;
   setId: (id: number) => void;
   setName: (name: string) => void;
@@ -36,6 +38,9 @@ const useUserStore = create<UserStore>((set) => ({
 
   modal_create_user: false,
   setModalCreateUser: (modal_create_user: boolean) => set({ modal_create_user }),
+
+  modal_delete_user: false,
+  setModalDeleteUser: (modal_delete_user: boolean) => set({ modal_delete_user }),
 
   drawer_edit_user: false,
   setDrawerEditUser: (drawer_edit_user: boolean) => set({ drawer_edit_user }),

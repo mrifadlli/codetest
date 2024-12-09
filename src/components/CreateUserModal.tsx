@@ -10,17 +10,17 @@ interface CreateUserModalProps {
   setEmailAddress: (value: string) => void;
   gender: string;
   setGender: (value: string) => void;
-  onClose: () => void;
+  onCancel: () => void;
   onSubmit: () => void;
   handleSwitchStatusUser: (value: boolean) => void
 }
 
-export default function CreateUserModal({ open, name, setName, email_address, setEmailAddress, gender, setGender, onClose, onSubmit, handleSwitchStatusUser }: CreateUserModalProps) {
+export default function CreateUserModal({ open, name, setName, email_address, setEmailAddress, gender, setGender, onCancel, onSubmit, handleSwitchStatusUser }: CreateUserModalProps) {
   return (
     <Modal
       open={open}
       title="Create user"
-      onCancel={onClose}
+      onCancel={onCancel}
       onOk={onSubmit}
     >
       <div className='flex flex-col space-y-3 my-4'>

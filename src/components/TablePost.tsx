@@ -12,7 +12,7 @@ interface TabelPostProps {
     handleToggleEditDrawer: (post_id: number) => void;
 }
 
-const TableUser: React.FC<TabelPostProps> = ({ data, onDeletePost, onViewPost, handleToggleCreateModal, handleToggleEditDrawer }) => {
+const TablePost: React.FC<TabelPostProps> = ({ data, onDeletePost, onViewPost, handleToggleCreateModal, handleToggleEditDrawer }) => {
     const [searchText, setSearchText] = useState<string>("");
     const [filteredData, setFilteredData] = useState<Posts[]>(data);
 
@@ -99,4 +99,4 @@ const TableUser: React.FC<TabelPostProps> = ({ data, onDeletePost, onViewPost, h
 }
 
 
-export default TableUser;
+export default TablePost;
