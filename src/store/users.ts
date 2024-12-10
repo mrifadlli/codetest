@@ -14,7 +14,7 @@ interface UserStore {
   gender: string;
   status: string;
   setAllUsers: (all_users: Users[]) => void;
-  setUser: (user: Users) => void;
+  setUser: (user: Users | null) => void;
   setUsername: (username: string) => void;
   setModalCreateUser: (modal_create_user: boolean) => void;
   setModalDeleteUser: (modal_delete_user: boolean) => void;
@@ -31,7 +31,7 @@ const useUserStore = create<UserStore>((set) => ({
   setAllUsers: (all_users: Users[]) => set({ all_users }),
 
   user: null,
-  setUser: (user: Users) => set({ user }),
+  setUser: (user: Users | null) => set({ user }),
 
   username: '',
   setUsername: (username: string) => set({ username }),

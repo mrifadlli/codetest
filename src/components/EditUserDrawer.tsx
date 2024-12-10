@@ -38,6 +38,14 @@ const EditUserDrawer: React.FC<EditUserDrawerProps> = ({ open, onClose, onSumbit
     }
   };
 
+  const handleCancelEditDrawer = () =>{
+    setName('')
+    setEmailAddress('')
+    setGender('')
+    setUser(null)
+    onClose()
+  }
+
   useEffect(() => {
     if (open && id) {
       fetchUserDetail();
@@ -48,7 +56,7 @@ const EditUserDrawer: React.FC<EditUserDrawerProps> = ({ open, onClose, onSumbit
     <Drawer
       title="Edit user"
       width={500}
-      onClose={onClose}
+      onClose={handleCancelEditDrawer}
       open={open}
       styles={{
         body: {
@@ -57,7 +65,7 @@ const EditUserDrawer: React.FC<EditUserDrawerProps> = ({ open, onClose, onSumbit
       }}
       extra={
         <Space>
-          <Button size='middle' onClick={onClose}>Cancel</Button>
+          <Button size='middle' onClick={handleCancelEditDrawer}>Cancel</Button>
           <Button size='middle' onClick={() => onSumbit({ name, email: email_address, gender, status }, id)} type="primary">
             Edit
           </Button>

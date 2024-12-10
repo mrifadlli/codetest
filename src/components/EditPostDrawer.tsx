@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { Button, Col, Drawer, Form, Input, message, Row, Select, Space } from 'antd';
+import { Button, Drawer, Form, Input, message, Space } from 'antd';
 import { viewPost } from '@/pages/api';
 import { UpdatePost } from '@/types';
 import usePostStore from '@/store/posts';
 
-
-// const { Option } = Select;
 const { TextArea } = Input;
 
 interface EditPostDrawerProps {
@@ -38,6 +36,14 @@ const EditPostDrawer: React.FC<EditPostDrawerProps> = ({ open, onClose, onSumbit
         }
     };
 
+    const handleCancelEditDrawer = () => {
+        setTitle('')
+        setBody('')
+        setUserId(0)
+        setPost(null)
+        onClose()
+    }
+
     useEffect(() => {
         if (open && id) {
             fetchUserDetail();
@@ -48,7 +54,7 @@ const EditPostDrawer: React.FC<EditPostDrawerProps> = ({ open, onClose, onSumbit
         <Drawer
             title="Edit post"
             width={500}
-            onClose={onClose}
+            onClose={handleCancelEditDrawer}
             open={open}
             styles={{
                 body: {
@@ -57,7 +63,7 @@ const EditPostDrawer: React.FC<EditPostDrawerProps> = ({ open, onClose, onSumbit
             }}
             extra={
                 <Space>
-                    <Button size='middle' onClick={onClose}>Cancel</Button>
+                    <Button size='middle' onClick={handleCancelEditDrawer}>Cancel</Button>
                     <Button size='middle' onClick={() => onSumbit({ id, user_id, title, body }, id)} type="primary">
                         Edit
                     </Button>

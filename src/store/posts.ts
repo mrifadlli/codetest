@@ -12,7 +12,7 @@ interface PostStore {
   setUserId: (user_id: number) => void;
 
   post: Posts | null;
-  setPost: (post: Posts) => void;
+  setPost: (post: Posts | null) => void;
 
   modal_create_post: boolean;
   setModalCreatePost: (modal_create_post: boolean) => void;
@@ -41,7 +41,7 @@ const usePostStore = create<PostStore>((set) => ({
   setUserId: (user_id: number) => set({ user_id }),
 
   post: null,
-  setPost: (post: Posts) => set({ post }),
+  setPost: (post: Posts | null) => set({ post }),
 
   modal_create_post: false,
   setModalCreatePost: (modal_create_post: boolean) => set({ modal_create_post }),

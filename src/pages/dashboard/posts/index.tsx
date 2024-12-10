@@ -115,7 +115,7 @@ export default function index() {
 
         <DeleteModal open={modal_delete_post} onCancel={() => setModalDeletePost(false)} onSubmit={handleDeletePost} data='post' />
 
-        <EditPostDrawer open={drawer_edit_post} onClose={() => setDrawerEditPost(!drawer_edit_post)} onSumbit={handleUpdateUser} />
+        <EditPostDrawer open={drawer_edit_post} onClose={() => setDrawerEditPost(false)} onSumbit={handleUpdateUser} />
 
         {
           isFetching || isDeletingPost ? (

@@ -18,7 +18,7 @@ import { UpdateUser } from '@/types';
 import DeleteModal from '@/components/DeleteModal';
 
 export default function index() {
-  const { all_users, setAllUsers, setModalCreateUser, modal_create_user, name, setName, email_address, setEmailAddress, gender, setGender, setStatus, status, setDrawerEditUser, drawer_edit_user, setId, id, modal_delete_user, setModalDeleteUser } = useUserStore();
+  const { all_users, setAllUsers, setModalCreateUser, modal_create_user, name, setName, email_address, setEmailAddress, gender, setGender, setStatus, status, setDrawerEditUser, drawer_edit_user, setId, id, modal_delete_user, setModalDeleteUser, setUser } = useUserStore();
   const { mutate: createUser } = useCreateUser();
   const { mutate: deleteUser, isPending: isDeletingUser } = useDeleteUser();
   const { mutate: viewUser } = useViewUser();
@@ -118,7 +118,7 @@ export default function index() {
 
         <DeleteModal open={modal_delete_user} onCancel={() => setModalDeleteUser(false)} onSubmit={handleDeleteUser} data='user' />
 
-        <EditUserDrawer open={drawer_edit_user} onClose={() => setDrawerEditUser(!drawer_edit_user)} onSumbit={handleUpdateUser} />
+        <EditUserDrawer open={drawer_edit_user} onClose={() => setDrawerEditUser(false)} onSumbit={handleUpdateUser} />
 
         {
           isFetching || isDeletingUser ? (
